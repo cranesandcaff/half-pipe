@@ -2,7 +2,6 @@
   "name": "<%= main_module_name %>",
   "dependencies": {
     "html5shiv": "latest",
-    "requirejs": "latest",
     "jquery-ujs": "latest",
     "normalize-css": "latest"
   }
