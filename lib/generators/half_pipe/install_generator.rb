@@ -3,6 +3,7 @@ module HalfPipe
     class InstallGenerator < Rails::Generators::Base
       desc "Installs basic Grunt/Bower setup with Sass & requirejs to your Rails project"
 
+
       class_option :builder, default: 'gulp', desc: 'Specify build tool GulpJS/GruntJS', aliases: :b
       class_option :processor, default: 'sass', desc: 'Specify the css pre-processor SASS/LESS', aliases: :p
 
