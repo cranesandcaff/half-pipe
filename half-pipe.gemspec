@@ -18,5 +18,4 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "sass"
-  gem.add_dependency "rails", ">= 4.0.0"
 end
