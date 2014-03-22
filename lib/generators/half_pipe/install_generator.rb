@@ -36,8 +36,8 @@ module HalfPipe
       end
 
       def insert_includes_into_layout
-        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= javascript_include_tag "/assets/scripts/application.js" %>\n  }, before: "</body>"
-        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "/assets/styles/main" %>\n  }, before: "</head>"
+        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= javascript_include_tag "application.js" %>\n  }, before: "</body>"
+        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "main" %>\n  }, before: "</head>"
       end
 
       def generate_scripts
