@@ -3,6 +3,7 @@ module HalfPipe
     class InstallGenerator < Rails::Generators::Base
       desc "Installs basic Grunt/Bower setup with Sass & requirejs to your Rails project"
 
+      class_option :builder, default: 'gulp', desc: 'Specify build tool GulpJS/GruntJS', aliases: :b
       class_option :processor, default: 'sass', desc: 'Specify the css pre-processor SASS/LESS', aliases: :p
 
       def self.source_root
@@ -10,13 +11,17 @@ module HalfPipe
       end
 
       def create_config_files
+        say "Installing using #{options.builder}"
         say "Installing using #{options.processor}"
         template "package.json", "package.json"
         template "_bowerrc", ".bowerrc"
         template "bower.json", "bower.json"
         template "_jshintrc", ".jshintrc"
-        template "Gruntfile.js", "Gruntfile.js"
         template "config/half-pipe.json"
+        case options.builder
+          when 'grunt' then template "Gruntfile.js", "Gruntfile.js"
+          when 'gulp' then template "Gulpfile.js","Gulpfile.js"
+        end
       end
 
       def remove_sprockets
@@ -82,7 +87,10 @@ module HalfPipe
         ENV["PATH"] = "./node_modules/.bin:#{ENV["PATH"]}"
 
         run "bower install"
-        run "grunt build:public"
+        case options.builder
+          when 'grunt' then run "grunt build:public"
+          when 'gulp' then run "gulp build:public"
+        end
       end
 
 
