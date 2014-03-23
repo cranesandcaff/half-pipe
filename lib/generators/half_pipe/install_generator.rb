@@ -90,7 +90,7 @@ module HalfPipe
         run "bower install"
         case options.builder
           when 'grunt' then run "grunt build:public"
-          when 'gulp' then run "gulp build:public"
+          when 'gulp' then run "gulp build"
         end
       end
 
