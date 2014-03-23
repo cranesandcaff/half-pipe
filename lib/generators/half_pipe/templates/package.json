@@ -34,7 +34,7 @@
     "gulp-imagemin":"*",
     "gulp-spawn":"*",
     "gulp-autoprefixer": "*",
-    "gulp-minifycss":"*"
+    "gulp-minify-css":"*"
     <% end %>
   }
 }
